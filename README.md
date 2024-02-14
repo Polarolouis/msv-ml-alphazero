@@ -1,0 +1,1 @@
+An attempt at reimplementing main AlphaZero for a simple connect two game.
