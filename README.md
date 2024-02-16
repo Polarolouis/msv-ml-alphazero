@@ -1,1 +1,2 @@
-An attempt at reimplementing main AlphaZero for a simple connect two game.
+Une implémentation du jeu ConnectTwo et une explication du code des fichiers du
+dépôt GitHub : [https://github.com/suragnair/alpha-zero-general/tree/master](https://github.com/suragnair/alpha-zero-general/tree/master)
