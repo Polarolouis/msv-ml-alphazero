@@ -32,7 +32,7 @@ args = dotdict({
 def main():
     log.info('Loading %s...', Game.__name__)
     # Modifier pour changer la taille du plateau
-    g = Game(8)
+    g = Game(4)
 
     log.info('Loading %s...', nn.__name__)
     nnet = nn(g)
@@ -56,3 +56,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -12,7 +12,7 @@ from NeuralNet import NeuralNet
 import torch
 import torch.optim as optim
 
-from .ConnectTwoNNet import OthelloNNet as onnet
+from .ConnectTwoNNet import ConnectTwoConvNNet as onnet
 
 args = dotdict({
     'lr': 0.001,
