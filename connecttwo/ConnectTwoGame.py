@@ -83,7 +83,7 @@ class ConnectTwoGame(Game):
     def getScore(self, board, player):
         b = Board(self.n)
         b.pieces = np.copy(board)
-        return 1 if b.areTwoConnected(player) else 0
+        return 1 if b.hasWon(player) else 0
     
     def getSymmetries(self, board, pi):
         return []
