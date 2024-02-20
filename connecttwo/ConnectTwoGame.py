@@ -86,7 +86,7 @@ class ConnectTwoGame(Game):
         return 1 if b.hasWon(player) else 0
     
     def getSymmetries(self, board, pi):
-        return []
+        return [(board, pi), (board[::-1], pi[::-1])]
 
     @staticmethod
     def display(board):
