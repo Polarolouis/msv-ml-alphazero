@@ -11,7 +11,7 @@ from utils import *
 
 log = logging.getLogger(__name__)
 
-board_size = 8
+board_size = 4
 
 coloredlogs.install(level='INFO')  # Change this to DEBUG to see more info.
 
