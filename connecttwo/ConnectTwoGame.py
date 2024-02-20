@@ -30,7 +30,7 @@ class ConnectTwoGame(Game):
 
     def getActionSize(self):
         # return number of actions
-        return self.n + 1
+        return self.n + 1 
 
     def getNextState(self, board, player, action):
         # if player takes action on board, return next (board,player)

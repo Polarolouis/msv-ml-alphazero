@@ -62,5 +62,8 @@ class Board():
         """Perform the given move on the board; fills with the right color
         (1=white,-1=black)
         """
+        if move == self.n+1:
+            # Passe le tour
+            return
         x = move
         self[x] = color
