@@ -18,7 +18,7 @@ gameboard_size = int(input("Enter board size [4,6,8]: ")) # 4, 6, 8
 # Sanity check for the values of gameboard size
 assert gameboard_size in [4,6,8]
 first_player = "rl" # greedy, rl, random
-human_vs_cpu = True
+second_player = "human" # human, greedy, rl, random
 
 if gameboard_size not in [4,6,8]:
     raise ValueError("gameboard_size must be 4, 6 or 8")
@@ -44,26 +44,24 @@ elif first_player == "rl":
 else:
     raise ValueError("first_player must be greedy, rl or random")
 
-
-
-if human_vs_cpu:
-    player2 = hp
-else:
+if second_player == "human":
+    n2p = hp
+elif second_player == "greedy":
+    n2p = lambda b: gp(b)
+elif second_player == "random":
+    n2p = lambda b: rp(b)
+elif second_player == "rl":
+    # nnet players
     n2 = NNet(g)
     n2.load_checkpoint('./pretrained_models/connecttwo/',f'{gameboard_size}best.pth.tar')
-    args2 = dotdict({'numMCTSSims': 50, 'cpuct': 1.0})
-    mcts2 = MCTS(g, n2, args2)
-    n2p = lambda x: np.argmax(mcts2.getActionProb(x, temp=0))
+    args2 = dotdict({'numMCTSSims': 50, 'cpuct':1.0})
+    mcts2 = MCTS(g, n1, args1)
+    n2p = lambda x: np.argmax(mcts1.getActionProb(x, temp=0))
+else:
+    raise ValueError("second_player must be greedy, rl or random")
 
-    player2 = n2p  # Player 2 is neural network if it's cpu vs cpu.
+player2 = n2p
 
-greedy_player = GreedyConnectTwoPlayer(g)
-random_player = RandomPlayer(game=g)
-
-gp = lambda b: greedy_player.play(b)
-rp = lambda b: random_player.play(b)
-
-#n1p
 
 arena = Arena.Arena(n1p, player2, g, display=ConnectTwoGame.display)
 
