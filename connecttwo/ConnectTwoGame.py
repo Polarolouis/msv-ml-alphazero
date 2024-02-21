@@ -62,10 +62,10 @@ class ConnectTwoGame(Game):
         b = Board(self.n)
         b.pieces = np.copy(board)
         if b.hasWon(player):
-            return player
-        elif b.hasWon(-player):
-            return -player
-        elif b.has_legal_moves():
+            return 1
+        if b.hasWon(-player):
+            return -1
+        if b.has_legal_moves():
             return 0
         return 1e-8
 
